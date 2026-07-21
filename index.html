@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Private AI deployment plan and monthly cost estimates for 50, 500, and 1000 user companies."
+    />
+    <title>Private AI Deployment Plan</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Private AI plan home">
+        <span class="brand-mark">T</span>
+        <span>
+          <strong>Private AI Plan</strong>
+          <small>by TORKA</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Primary navigation">
+        <a href="#packages">Packages</a>
+        <a href="#models">Models</a>
+        <a href="#hosting">Hosting</a>
+        <a href="#costs">Costs</a>
+        <a href="#security">Security</a>
+      </nav>
+      <a class="header-cta" href="#calculator">Estimate Cost</a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Private AI for companies</p>
+          <h1>Deploy private AI for 50, 500, or 1000 users with clear monthly cost planning.</h1>
+          <p class="hero-lead">
+            A practical deployment blueprint for small, medium, and large companies.
+            It covers model sizes from 1B to 1.5T+, hosting platforms, setup cost,
+            maintenance, security, RAG, web search, and enterprise operations.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#packages">View Packages</a>
+            <a class="button secondary" href="./docs/monthly-cost-estimates.md">Open Cost Doc</a>
+          </div>
+        </div>
+
+        <aside class="terminal-card" aria-label="Deployment summary">
+          <div class="terminal-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong>private-ai-stack</strong>
+          </div>
+          <pre><code>router:
+  low: 1B-7B local model
+  standard: 7B-32B private model
+  high: 70B-120B reasoning model
+  expert: 405B/API fallback
+
+rag:
+  vector_db: Qdrant / Milvus / pgvector
+  embeddings: BGE-M3 / Nomic
+  sources: company docs + trusted web
+
+security:
+  sso: SAML/OIDC
+  logs: audit + usage
+  data: no training by default</code></pre>
+        </aside>
+      </section>
+
+      <section class="stats-strip" aria-label="Main cost ranges">
+        <article>
+          <span>50 users</span>
+          <strong>USD 2.5k-8.5k/mo</strong>
+          <small>Private team deployment</small>
+        </article>
+        <article>
+          <span>500 users</span>
+          <strong>USD 13k-45k/mo</strong>
+          <small>Department or company AI</small>
+        </article>
+        <article>
+          <span>1000 users</span>
+          <strong>USD 35k-140k/mo</strong>
+          <small>Enterprise private AI</small>
+        </article>
+        <article>
+          <span>1T+ model</span>
+          <strong>USD 200k-750k+/mo</strong>
+          <small>National or ultra enterprise</small>
+        </article>
+      </section>
+
+      <section id="packages" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Deployment packages</p>
+          <h2>Choose the right private AI plan by user count.</h2>
+          <p>
+            The recommended approach is a routed AI stack. Simple requests use
+            smaller private models; complex work moves to larger models or API
+            fallback only when needed.
+          </p>
+        </div>
+
+        <div class="package-grid">
+          <article class="package-card">
+            <div class="card-topline">Small company</div>
+            <h3>50 users</h3>
+            <p>For small businesses, agencies, clinics, schools, and teams.</p>
+            <dl>
+              <div><dt>Setup</dt><dd>USD 10k-35k</dd></div>
+              <div><dt>Monthly</dt><dd>USD 2.5k-8.5k</dd></div>
+              <div><dt>Models</dt><dd>1B-14B, optional 32B</dd></div>
+              <div><dt>Hosting</dt><dd>RunPod, Lambda, AWS, on-prem</dd></div>
+            </dl>
+          </article>
+
+          <article class="package-card highlighted">
+            <div class="card-topline">Recommended</div>
+            <h3>500 users</h3>
+            <p>For medium companies needing RAG, SSO, audit logs, and business AI.</p>
+            <dl>
+              <div><dt>Setup</dt><dd>USD 35k-120k</dd></div>
+              <div><dt>Monthly</dt><dd>USD 13k-45k</dd></div>
+              <div><dt>Models</dt><dd>7B-70B plus API fallback</dd></div>
+              <div><dt>Hosting</dt><dd>AWS, GCP, Azure, Lambda, hybrid</dd></div>
+            </dl>
+          </article>
+
+          <article class="package-card">
+            <div class="card-topline">Large company</div>
+            <h3>1000 users</h3>
+            <p>For enterprise AI with governance, HA, RAG workers, and compliance.</p>
+            <dl>
+              <div><dt>Setup</dt><dd>USD 90k-300k</dd></div>
+              <div><dt>Monthly</dt><dd>USD 35k-140k</dd></div>
+              <div><dt>Models</dt><dd>14B-405B specialist stack</dd></div>
+              <div><dt>Hosting</dt><dd>Hyperscaler, GPU cloud, on-prem</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section id="calculator" class="content-section split-section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Live estimator</p>
+          <h2>Estimate monthly private AI cost.</h2>
+          <p>
+            Select the closest company size. These are planning numbers for
+            proposals, not final invoices. Final quotes depend on region, GPU
+            availability, workload, support level, and security requirements.
+          </p>
+        </div>
+
+        <div class="calculator-card">
+          <label for="planSelect">Company size</label>
+          <select id="planSelect">
+            <option value="small">Small company, 50 users</option>
+            <option value="medium" selected>Medium company, 500 users</option>
+            <option value="large">Large company, 1000 users</option>
+            <option value="ultra">Enterprise 1T+ platform</option>
+          </select>
+
+          <div class="estimate-grid" aria-live="polite">
+            <div>
+              <span>One-time setup</span>
+              <strong id="setupCost">USD 70,000</strong>
+            </div>
+            <div>
+              <span>Monthly hosting</span>
+              <strong id="hostingCost">USD 14,000</strong>
+            </div>
+            <div>
+              <span>Monthly support</span>
+              <strong id="supportCost">USD 9,000</strong>
+            </div>
+            <div>
+              <span>Total monthly</span>
+              <strong id="totalCost">USD 25,000</strong>
+            </div>
+          </div>
+
+          <p id="estimateNote" class="estimate-note">
+            Best for departments, policy search, business documents, support, SSO, and audit logs.
+          </p>
+        </div>
+      </section>
+
+      <section id="models" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Model scale</p>
+          <h2>Use small-to-large routing instead of one expensive model for everything.</h2>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Model class</th>
+                <th>Best use</th>
+                <th>Typical monthly infra</th>
+                <th>Recommendation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1B-3B</td>
+                <td>Routing, simple chat, basic support</td>
+                <td>USD 300-2k</td>
+                <td>Use for low-risk prompts and speed.</td>
+              </tr>
+              <tr>
+                <td>7B-14B</td>
+                <td>Normal chat, writing, multilingual support</td>
+                <td>USD 1.5k-5k</td>
+                <td>Default for small/medium companies.</td>
+              </tr>
+              <tr>
+                <td>32B-70B</td>
+                <td>Business docs, coding, reasoning, long answers</td>
+                <td>USD 3k-18k</td>
+                <td>Use for quality-sensitive work.</td>
+              </tr>
+              <tr>
+                <td>120B-405B</td>
+                <td>Expert work, complex research, high-value tasks</td>
+                <td>USD 12k-120k</td>
+                <td>Use with RAG and review workflows.</td>
+              </tr>
+              <tr>
+                <td>1T-1.5T+</td>
+                <td>National, very large enterprise, AI provider</td>
+                <td>USD 200k-750k+</td>
+                <td>Only when the business case is clear.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="hosting" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Hosting platforms</p>
+          <h2>Host where the customer needs the right balance of speed, control, and compliance.</h2>
+        </div>
+
+        <div class="platform-grid">
+          <article><h3>Lambda Cloud</h3><p>Dedicated GPU instances and clusters for H100, H200, and B200 private AI workloads.</p></article>
+          <article><h3>RunPod</h3><p>Fast pilot deployments, GPU workers, serverless inference, and flexible GPU experiments.</p></article>
+          <article><h3>AWS</h3><p>Enterprise production with VPC, IAM, private networking, compliance, and Capacity Blocks.</p></article>
+          <article><h3>Google Cloud</h3><p>Kubernetes, data platform integration, and committed use discounts for longer deployments.</p></article>
+          <article><h3>Azure</h3><p>Best fit for Microsoft enterprise customers using Entra ID, Microsoft 365, and Azure governance.</p></article>
+          <article><h3>On-prem or hybrid</h3><p>Maximum data control for banks, hospitals, law firms, government, and strict residency needs.</p></article>
+        </div>
+      </section>
+
+      <section id="costs" class="content-section split-section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Cost controls</p>
+          <h2>Keep monthly cost predictable.</h2>
+        </div>
+        <div class="checklist-card">
+          <ul>
+            <li>Route simple requests to 1B-7B models.</li>
+            <li>Use RAG before escalating to larger models.</li>
+            <li>Enable caching for repeated questions and retrieved context.</li>
+            <li>Use 70B+ only for reasoning, coding, legal, finance, medical, or expert work.</li>
+            <li>Track daily usage per user, team, model, and department.</li>
+            <li>Use committed GPU capacity only after traffic is predictable.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="security" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Security baseline</p>
+          <h2>Private AI must be secure before it becomes smart.</h2>
+          <p>
+            Enterprise deployments should include SSO, RBAC, audit logs,
+            encryption, DLP, backups, data retention, source controls, and a
+            rule that customer data is not used for training by default.
+          </p>
+        </div>
+
+        <div class="security-grid">
+          <article><strong>SSO</strong><span>SAML/OIDC with SCIM for enterprise.</span></article>
+          <article><strong>RAG controls</strong><span>Only retrieve documents users are allowed to access.</span></article>
+          <article><strong>Audit logs</strong><span>Log prompt, model, token, file, admin, and security activity.</span></article>
+          <article><strong>Risk answers</strong><span>Medical, law, tax, visa, and finance must use sources.</span></article>
+        </div>
+      </section>
+
+      <section class="source-section">
+        <h2>Pricing references</h2>
+        <p>
+          Re-check provider pricing before a final quotation:
+          <a href="https://lambda.ai/pricing">Lambda</a>,
+          <a href="https://www.runpod.io/pricing">RunPod</a>,
+          <a href="https://aws.amazon.com/ec2/capacityblocks/pricing/">AWS Capacity Blocks</a>,
+          <a href="https://docs.cloud.google.com/docs/cuds">Google Cloud discounts</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Private AI Deployment Plan</span>
+      <a href="./README.md">README</a>
+      <a href="./docs/private-ai-deployment-plan.md">Full plan</a>
+      <a href="./costs/private_ai_cost_model.csv">Cost CSV</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
