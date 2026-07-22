@@ -4,7 +4,7 @@ Last updated: 2026-07-22
 
 Private AI is only valuable if the company can trust where the data goes, who
 can access it, and how it is logged. This document lists the required controls
-for small, medium, large, and regulated deployments.
+for small to large user groups and regulated deployments.
 
 ## Security Baseline
 
@@ -153,6 +153,6 @@ Do not claim certification unless a third-party audit has been completed.
 ## Final Security Recommendation
 
 For small companies, start simple but keep logs and access control from day one.
-For medium and large companies, do not deploy without SSO, RBAC, audit logs, data
+For growing and large user deployments, do not deploy without SSO, RBAC, audit logs, data
 retention, backups, and a clear rule that customer data is not used for training
 without explicit permission.

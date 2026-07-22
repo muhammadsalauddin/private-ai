@@ -1,0 +1,5 @@
+Provider,Instance or node,GPU class,GPU count,Hourly USD,Monthly USD at 730h,Source,Notes
+Lambda GPU Cloud,8x H100 SXM equivalent,H100 SXM,8,31.92,23301.60,https://lambda.ai/pricing,Public H100 SXM reference at 3.99 USD per GPU hour; verify before quote.
+RunPod Secure Cloud,8x H100 SXM equivalent,H100 SXM,8,23.92,17461.60,https://www.runpod.io/pricing,Public H100 SXM reference at 2.99 USD per GPU hour; secure/community/serverless prices vary.
+AWS EC2,p5.48xlarge,H100,8,55.04,40179.20,https://aws.amazon.com/ec2/pricing/on-demand/,AWS public offer file us-east-1 Linux on-demand p5.48xlarge.
+Azure Virtual Machines,ND96isr_H100_v5,H100,8,98.32,71773.60,https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices,Azure Retail Prices API East US consumption reference; region changes price.

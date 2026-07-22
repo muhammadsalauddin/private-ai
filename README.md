@@ -1,19 +1,19 @@
 # Private AI Deployment Plan
 
-This repository contains a practical plan for deploying private AI for small,
-medium, and large companies. It includes deployment architecture, hosting
+This repository contains a practical plan for deploying private AI for small to
+large user groups. It includes deployment architecture, hosting
 platform choices, model-size recommendations, setup cost, monthly hosting cost,
-maintenance cost, and scaling guidance from 50 to 1000 users.
+maintenance cost, and scaling guidance from small to large user counts.
 
 Last updated: 2026-07-22
 
 ## What Is Included
 
-- A full private AI deployment plan for 50, 500, and 1000 monthly users.
+- A full private AI deployment plan for small, growing, large, and very large user groups.
 - Cost estimates for 1B, 3B, 7B, 14B, 32B, 70B, 120B, 405B, 1T, and 1.5T+ model classes.
 - Hosting platform recommendations for cloud, GPU cloud, on-prem, and hybrid deployments.
 - Security, compliance, maintenance, and support requirements.
-- A CSV cost model that can be edited for quotations and proposals.
+- CSV cost models that can be edited for quotations and proposals.
 
 ## Recommended Reading Order
 
@@ -21,10 +21,11 @@ Last updated: 2026-07-22
 2. [Monthly Cost Estimates](docs/monthly-cost-estimates.md)
 3. [Security and Compliance](docs/security-compliance.md)
 4. [Cost Model CSV](costs/private_ai_cost_model.csv)
+5. [GPU Hosting Rates CSV](costs/gpu_hosting_rates.csv)
 
 ## Short Recommendation
 
-For most companies with 50 to 1000 users, do not run every request on a very
+For most small-to-large user amount deployments, do not run every request on a very
 large model. Use a private AI router:
 
 - Small tasks: 1B to 7B local model.
@@ -39,9 +40,10 @@ This keeps the system fast, private, and financially realistic.
 
 Pricing changes frequently. The estimates use public GPU pricing references from:
 
-- [Lambda GPU Cloud Pricing](https://lambda.ai/pricing)
+- [Lambda GPU Cloud](https://lambda.ai/pricing)
 - [RunPod GPU Pricing](https://www.runpod.io/pricing)
-- [AWS EC2 Capacity Blocks Pricing](https://aws.amazon.com/ec2/capacityblocks/pricing/)
-- [Google Cloud Committed Use Discounts](https://docs.cloud.google.com/docs/cuds)
+- [AWS EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/)
+- [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
+- [Google Cloud GPU Pricing](https://cloud.google.com/compute/gpus-pricing)
 
 Always re-check provider pricing before making a final customer quotation.

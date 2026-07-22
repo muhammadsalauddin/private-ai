@@ -8,10 +8,11 @@ region, contract, and availability.
 
 ## Pricing Sources Used
 
-- [Lambda GPU Cloud Pricing](https://lambda.ai/pricing)
+- [Lambda GPU Cloud](https://lambda.ai/pricing)
 - [RunPod GPU Pricing](https://www.runpod.io/pricing)
-- [AWS EC2 Capacity Blocks Pricing](https://aws.amazon.com/ec2/capacityblocks/pricing/)
-- [Google Cloud Committed Use Discounts](https://docs.cloud.google.com/docs/cuds)
+- [AWS EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/)
+- [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
+- [Google Cloud GPU Pricing](https://cloud.google.com/compute/gpus-pricing)
 
 ## Core Assumptions
 
@@ -20,25 +21,23 @@ region, contract, and availability.
 - Estimates include application servers, databases, storage, monitoring, backups, and vector DB where relevant.
 - Maintenance includes bug fixes, model updates, monitoring, uptime support, RAG updates, and security patches.
 - Large model serving needs extra memory for KV cache, batching, redundancy, and failover.
-- 1T to 1.5T+ models are possible, but usually not financially efficient for 50 to 1000 users unless the workload is very high-value.
+- 1T to 1.5T+ models are possible, but usually not financially efficient for normal small-to-large user amount deployments unless the workload is very high-value.
 
-## GPU Cost Examples
+## Public GPU Hosting References
 
 | GPU setup | Reference provider | Hourly estimate | Monthly estimate |
 |---|---|---:|---:|
-| 1x H100 | Lambda | USD 3.99/hr | USD 2,912.70 |
-| 2x H100 | Lambda | USD 7.98/hr | USD 5,825.40 |
-| 4x H100 | Lambda | USD 15.96/hr | USD 11,650.80 |
-| 8x H100 | Lambda | USD 31.92/hr | USD 23,301.60 |
-| 16x H100 | Lambda | USD 63.84/hr | USD 46,603.20 |
-| 32x B200 | Lambda | USD 214.08/hr | USD 156,278.40 |
-| 64x B200 | Lambda | USD 428.16/hr | USD 312,556.80 |
-| 8x H100 p5.48xlarge | AWS Capacity Blocks | USD 41.528/hr | USD 30,315.44 |
-| 8x B200 p6-b200.48xlarge | AWS Capacity Blocks | USD 98.84/hr | USD 72,153.20 |
+| 8x H100 SXM equivalent | Lambda GPU Cloud | USD 31.92/hr | USD 23,301.60 |
+| 8x H100 SXM equivalent | RunPod Secure Cloud | USD 23.92/hr | USD 17,461.60 |
+| 8x H100 p5.48xlarge | AWS EC2 On-Demand | USD 55.04/hr | USD 40,179.20 |
+| 8x H100 ND96isr H100 v5 | Azure Retail Prices API | USD 98.32/hr | USD 71,773.60 |
 
 RunPod can be lower or higher depending on serverless, secure cloud, community
-cloud, and availability. Google Cloud and other hyperscalers can become cheaper
-with committed use discounts, but commitment terms reduce flexibility.
+cloud, and availability. Google Cloud, Azure, AWS, and other hyperscalers can
+become cheaper with commitments, reserved capacity, or enterprise agreements,
+but commitment terms reduce flexibility. 1T to 1.5T+ serving usually needs
+multiple 8-GPU equivalent nodes, so the live calculator expresses capacity in
+node equivalents.
 
 ## Model Size Cost Bands
 
@@ -52,9 +51,11 @@ with committed use discounts, but commitment terms reduce flexibility.
 | 405B | 8-16x H100/B200 | USD 30,000-120,000 | High-quality enterprise model class. |
 | 1T-1.5T+ | 32-64+ high-memory GPUs | USD 200,000-750,000+ | Only for major enterprise or national-scale AI. |
 
-## Company Size Packages
+## User Amount Packages
 
-### 50 Users
+### Small Users
+
+Flexible planning size: small monthly active user amount.
 
 | Item | Low | Recommended | High |
 |---|---:|---:|---:|
@@ -74,7 +75,9 @@ Recommended hosting:
 
 - RunPod Secure Cloud, Lambda, one AWS/GCP/Azure GPU node, or on-prem GPU server.
 
-### 500 Users
+### Growing Users
+
+Flexible planning size: growing monthly active user amount.
 
 | Item | Low | Recommended | High |
 |---|---:|---:|---:|
@@ -94,7 +97,9 @@ Recommended hosting:
 
 - AWS, Google Cloud, Azure, Lambda reserved capacity, CoreWeave, or hybrid cloud.
 
-### 1000 Users
+### Large Users
+
+Flexible planning size: large monthly active user amount.
 
 | Item | Low | Recommended | High |
 |---|---:|---:|---:|
@@ -125,7 +130,7 @@ Recommended hosting:
 | One-time setup | USD 300,000 | USD 750,000 | USD 1,500,000+ |
 
 This level should be sold as an enterprise/national platform, not as a normal
-SaaS plan for 50 to 1000 users.
+SaaS plan for normal small-to-large user amount deployments.
 
 ## Hosting Platform Decision Matrix
 
@@ -147,9 +152,9 @@ SaaS plan for 50 to 1000 users.
 
 | Customer type | One-time setup | Monthly managed service |
 |---|---:|---:|
-| Small company, 50 users | USD 15,000-35,000 | USD 3,000-8,500 |
-| Medium company, 500 users | USD 50,000-120,000 | USD 15,000-45,000 |
-| Large company, 1000 users | USD 120,000-300,000 | USD 40,000-140,000 |
+| Small users, example around 50 | USD 15,000-35,000 | USD 3,000-8,500 |
+| Growing users, example around 500 | USD 50,000-120,000 | USD 15,000-45,000 |
+| Large amount users | USD 120,000-300,000 | USD 40,000-140,000 |
 | Enterprise 1T+ platform | USD 300,000-1,500,000+ | USD 200,000-750,000+ |
 
 ### What The Monthly Fee Includes

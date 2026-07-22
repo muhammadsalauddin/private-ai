@@ -343,6 +343,17 @@ dd {
   font-weight: 700;
 }
 
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-field label {
+  margin-bottom: 0.45rem;
+}
+
+input,
 select {
   width: 100%;
   min-height: 3.1rem;
@@ -361,6 +372,10 @@ select {
   margin: 1rem 0;
 }
 
+.estimate-grid.estimate-grid-wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .estimate-grid div {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -375,9 +390,15 @@ select {
 }
 
 .estimate-note,
+.provider-note,
 .source-section p {
   color: var(--soft);
   line-height: 1.65;
+}
+
+.provider-note {
+  margin-bottom: 0;
+  font-size: 0.92rem;
 }
 
 .table-wrap {
@@ -454,6 +475,12 @@ td:first-child {
   text-underline-offset: 0.25em;
 }
 
+.rate-table a {
+  color: #99c2ff;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
 .site-footer {
   display: flex;
   justify-content: center;
@@ -474,7 +501,9 @@ td:first-child {
   .package-grid,
   .platform-grid,
   .security-grid,
-  .stats-strip {
+  .stats-strip,
+  .form-grid,
+  .estimate-grid.estimate-grid-wide {
     grid-template-columns: 1fr;
   }
 

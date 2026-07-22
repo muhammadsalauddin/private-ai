@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Private AI deployment plan and monthly cost estimates for 50, 500, and 1000 user companies."
+      content="Private AI deployment plan and monthly cost estimates for small to large user amounts."
     />
     <title>Private AI Deployment Plan</title>
     <link rel="stylesheet" href="./styles.css" />
@@ -24,6 +24,7 @@
         <a href="#models">Models</a>
         <a href="#hosting">Hosting</a>
         <a href="#costs">Costs</a>
+        <a href="#rates">Rates</a>
         <a href="#security">Security</a>
       </nav>
       <a class="header-cta" href="#calculator">Estimate Cost</a>
@@ -33,9 +34,10 @@
       <section class="hero section-grid">
         <div class="hero-copy">
           <p class="eyebrow">Private AI for companies</p>
-          <h1>Deploy private AI for 50, 500, or 1000 users with clear monthly cost planning.</h1>
+          <h1>Deploy private AI for small to large user counts with clear monthly cost planning.</h1>
           <p class="hero-lead">
-            A practical deployment blueprint for small, medium, and large companies.
+            A practical deployment blueprint for small teams, growing companies,
+            large enterprises, and national-scale platforms.
             It covers model sizes from 1B to 1.5T+, hosting platforms, setup cost,
             maintenance, security, RAG, web search, and enterprise operations.
           </p>
@@ -72,31 +74,31 @@ security:
 
       <section class="stats-strip" aria-label="Main cost ranges">
         <article>
-          <span>50 users</span>
+          <span>Small users</span>
           <strong>USD 2.5k-8.5k/mo</strong>
-          <small>Private team deployment</small>
+          <small>Flexible small user amount</small>
         </article>
         <article>
-          <span>500 users</span>
+          <span>Growing users</span>
           <strong>USD 13k-45k/mo</strong>
-          <small>Department or company AI</small>
+          <small>Flexible growing user amount</small>
         </article>
         <article>
-          <span>1000 users</span>
+          <span>Large users</span>
           <strong>USD 35k-140k/mo</strong>
-          <small>Enterprise private AI</small>
+          <small>Flexible large user amount</small>
         </article>
         <article>
-          <span>1T+ model</span>
+          <span>Very large AI</span>
           <strong>USD 200k-750k+/mo</strong>
-          <small>National or ultra enterprise</small>
+          <small>405B to 1T+ capacity planning</small>
         </article>
       </section>
 
       <section id="packages" class="content-section">
         <div class="section-heading">
           <p class="eyebrow">Deployment packages</p>
-          <h2>Choose the right private AI plan by user count.</h2>
+          <h2>Choose the right private AI plan from small to large user counts.</h2>
           <p>
             The recommended approach is a routed AI stack. Simple requests use
             smaller private models; complex work moves to larger models or API
@@ -106,9 +108,9 @@ security:
 
         <div class="package-grid">
           <article class="package-card">
-            <div class="card-topline">Small company</div>
-            <h3>50 users</h3>
-            <p>For small businesses, agencies, clinics, schools, and teams.</p>
+            <div class="card-topline">Small amount</div>
+            <h3>Small users</h3>
+            <p>For small businesses, agencies, clinics, schools, and teams with a small monthly user amount.</p>
             <dl>
               <div><dt>Setup</dt><dd>USD 10k-35k</dd></div>
               <div><dt>Monthly</dt><dd>USD 2.5k-8.5k</dd></div>
@@ -119,8 +121,8 @@ security:
 
           <article class="package-card highlighted">
             <div class="card-topline">Recommended</div>
-            <h3>500 users</h3>
-            <p>For medium companies needing RAG, SSO, audit logs, and business AI.</p>
+            <h3>Growing users</h3>
+            <p>For companies with hundreds of users needing RAG, SSO, audit logs, and business AI.</p>
             <dl>
               <div><dt>Setup</dt><dd>USD 35k-120k</dd></div>
               <div><dt>Monthly</dt><dd>USD 13k-45k</dd></div>
@@ -130,9 +132,9 @@ security:
           </article>
 
           <article class="package-card">
-            <div class="card-topline">Large company</div>
-            <h3>1000 users</h3>
-            <p>For enterprise AI with governance, HA, RAG workers, and compliance.</p>
+            <div class="card-topline">Large amount</div>
+            <h3>Large users</h3>
+            <p>For thousands of users, enterprise AI governance, high availability, RAG workers, and compliance.</p>
             <dl>
               <div><dt>Setup</dt><dd>USD 90k-300k</dd></div>
               <div><dt>Monthly</dt><dd>USD 35k-140k</dd></div>
@@ -148,29 +150,77 @@ security:
           <p class="eyebrow">Live estimator</p>
           <h2>Estimate monthly private AI cost.</h2>
           <p>
-            Select the closest company size. These are planning numbers for
-            proposals, not final invoices. Final quotes depend on region, GPU
-            availability, workload, support level, and security requirements.
+            Select a profile, then adjust users, model class, hosting provider,
+            uptime, and support. These are planning numbers for proposals, not
+            final invoices.
           </p>
         </div>
 
         <div class="calculator-card">
-          <label for="planSelect">Company size</label>
-          <select id="planSelect">
-            <option value="small">Small company, 50 users</option>
-            <option value="medium" selected>Medium company, 500 users</option>
-            <option value="large">Large company, 1000 users</option>
-            <option value="ultra">Enterprise 1T+ platform</option>
-          </select>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="profileSelect">Company profile</label>
+              <select id="profileSelect">
+                <option value="starter">Small users</option>
+                <option value="growing" selected>Growing users</option>
+                <option value="large">Large users</option>
+                <option value="national">Very large / national users</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="userCount">Monthly active users</label>
+              <input id="userCount" type="number" min="10" step="10" value="500" />
+            </div>
+            <div class="form-field">
+              <label for="modelSelect">Model class</label>
+              <select id="modelSelect">
+                <option value="1b">1B-3B fast private assistant</option>
+                <option value="7b">7B-14B company chat</option>
+                <option value="70b" selected>32B-70B business AI</option>
+                <option value="405b">120B-405B expert AI</option>
+                <option value="1t">1T-1.5T+ national platform</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="providerSelect">Hosting provider</label>
+              <select id="providerSelect">
+                <option value="lambda" selected>Lambda GPU Cloud</option>
+                <option value="runpod">RunPod Secure Cloud</option>
+                <option value="aws">AWS EC2 P5</option>
+                <option value="azure">Azure ND H100 v5</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="uptimeSelect">Dedicated GPU uptime</label>
+              <select id="uptimeSelect">
+                <option value="0.25">Pilot / 25% monthly capacity</option>
+                <option value="0.5">Business hours / 50% capacity</option>
+                <option value="1" selected>Production / 24-7 capacity</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="supportSelect">Support and maintenance</label>
+              <select id="supportSelect">
+                <option value="none">No support</option>
+                <option value="light">Light support</option>
+                <option value="standard" selected>Standard support</option>
+                <option value="enterprise">Enterprise support</option>
+              </select>
+            </div>
+          </div>
 
-          <div class="estimate-grid" aria-live="polite">
+          <div class="estimate-grid estimate-grid-wide" aria-live="polite">
             <div>
               <span>One-time setup</span>
               <strong id="setupCost">USD 70,000</strong>
             </div>
             <div>
-              <span>Monthly hosting</span>
+              <span>GPU hosting/month</span>
               <strong id="hostingCost">USD 14,000</strong>
+            </div>
+            <div>
+              <span>Platform/month</span>
+              <strong id="platformCost">USD 3,000</strong>
             </div>
             <div>
               <span>Monthly support</span>
@@ -180,10 +230,25 @@ security:
               <span>Total monthly</span>
               <strong id="totalCost">USD 25,000</strong>
             </div>
+            <div>
+              <span>Cost per user</span>
+              <strong id="perUserCost">USD 50</strong>
+            </div>
+            <div>
+              <span>GPU nodes</span>
+              <strong id="nodeCount">1.00</strong>
+            </div>
+            <div>
+              <span>Model profile</span>
+              <strong id="modelProfile">32B-70B</strong>
+            </div>
           </div>
 
           <p id="estimateNote" class="estimate-note">
             Best for departments, policy search, business documents, support, SSO, and audit logs.
+          </p>
+          <p id="providerNote" class="provider-note">
+            Provider note appears here after calculation.
           </p>
         </div>
       </section>
@@ -215,7 +280,7 @@ security:
                 <td>7B-14B</td>
                 <td>Normal chat, writing, multilingual support</td>
                 <td>USD 1.5k-5k</td>
-                <td>Default for small/medium companies.</td>
+                <td>Default for small and growing user groups.</td>
               </tr>
               <tr>
                 <td>32B-70B</td>
@@ -273,6 +338,63 @@ security:
         </div>
       </section>
 
+      <section id="rates" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Public GPU rates</p>
+          <h2>Use real provider rates, then confirm before quote.</h2>
+          <p>
+            These rates are public planning references for always-on 8-GPU
+            capacity at 730 hours per month. Final quotes still depend on
+            region, reservation terms, availability, taxes, storage, bandwidth,
+            and support.
+          </p>
+        </div>
+
+        <div class="table-wrap rate-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>Reference node</th>
+                <th>Hourly</th>
+                <th>Monthly at 730h</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lambda GPU Cloud</td>
+                <td>8x H100 SXM equivalent</td>
+                <td>USD 31.92/hr</td>
+                <td>USD 23,301.60</td>
+                <td><a href="https://lambda.ai/pricing">Lambda GPU Cloud</a></td>
+              </tr>
+              <tr>
+                <td>RunPod Secure Cloud</td>
+                <td>8x H100 SXM equivalent</td>
+                <td>USD 23.92/hr</td>
+                <td>USD 17,461.60</td>
+                <td><a href="https://www.runpod.io/pricing">RunPod pricing</a></td>
+              </tr>
+              <tr>
+                <td>AWS EC2</td>
+                <td>p5.48xlarge, 8x H100</td>
+                <td>USD 55.04/hr</td>
+                <td>USD 40,179.20</td>
+                <td><a href="https://aws.amazon.com/ec2/pricing/on-demand/">AWS EC2 On-Demand</a></td>
+              </tr>
+              <tr>
+                <td>Azure Virtual Machines</td>
+                <td>ND96isr H100 v5, 8x H100</td>
+                <td>USD 98.32/hr</td>
+                <td>USD 71,773.60</td>
+                <td><a href="https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices">Azure Retail Prices API</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <section id="security" class="content-section">
         <div class="section-heading">
           <p class="eyebrow">Security baseline</p>
@@ -296,10 +418,11 @@ security:
         <h2>Pricing references</h2>
         <p>
           Re-check provider pricing before a final quotation:
-          <a href="https://lambda.ai/pricing">Lambda</a>,
+          <a href="https://lambda.ai/pricing">Lambda GPU Cloud</a>,
           <a href="https://www.runpod.io/pricing">RunPod</a>,
-          <a href="https://aws.amazon.com/ec2/capacityblocks/pricing/">AWS Capacity Blocks</a>,
-          <a href="https://docs.cloud.google.com/docs/cuds">Google Cloud discounts</a>.
+          <a href="https://aws.amazon.com/ec2/pricing/on-demand/">AWS EC2 On-Demand</a>,
+          <a href="https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices">Azure Retail Prices API</a>,
+          <a href="https://cloud.google.com/compute/gpus-pricing">Google Cloud GPU pricing</a>.
         </p>
       </section>
     </main>
@@ -309,6 +432,7 @@ security:
       <a href="./README.md">README</a>
       <a href="./docs/private-ai-deployment-plan.md">Full plan</a>
       <a href="./costs/private_ai_cost_model.csv">Cost CSV</a>
+      <a href="./costs/gpu_hosting_rates.csv">GPU rates CSV</a>
     </footer>
 
     <script src="./script.js"></script>

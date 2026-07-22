@@ -12,10 +12,10 @@ audit logs, and usage billing.
 
 The same architecture can support:
 
-- Small company: 50 monthly users.
-- Medium company: 500 monthly users.
-- Large company: 1000 monthly users.
-- Enterprise/private government deployment: 1000+ users with strict security.
+- Small user groups: example planning size around 50 monthly users.
+- Growing user groups: example planning size around 500 monthly users.
+- Large user groups: flexible planning for high monthly active user amounts.
+- Very large/private government deployment: custom large user counts with strict security.
 
 ## Core Principle
 
@@ -76,13 +76,13 @@ flowchart TD
 | On-prem server | Maximum data control | Best for banks, law firms, hospitals, government, and strict data residency. |
 | Hybrid | Private data plus cloud burst | Best default for serious companies: local RAG and private data, cloud GPUs for spikes. |
 
-### Recommended Hosting By Company Size
+### Recommended Hosting By User Amount
 
-| Company size | Recommended hosting | Why |
+| User amount | Recommended hosting | Why |
 |---|---|---|
-| 50 users | Single private cloud GPU or on-prem workstation/server | Lowest cost and simple management. |
-| 500 users | Private VPC with 2-4 GPUs, managed DB, object storage, vector DB | Enough capacity, uptime, and security for departments. |
-| 1000 users | GPU cluster with load balancing, autoscaling, HA DB, separate RAG workers | Handles concurrency, audit, and production reliability. |
+| Small amount users | Single private cloud GPU or on-prem workstation/server | Lowest cost and simple management. |
+| Growing amount users | Private VPC with 2-4 GPUs, managed DB, object storage, vector DB | Enough capacity, uptime, and security for departments. |
+| Large amount users | GPU cluster with load balancing, autoscaling, HA DB, separate RAG workers | Handles concurrency, audit, and production reliability. |
 | Regulated enterprise | On-prem or private cloud with dedicated GPU nodes | Data control, compliance, audit, and predictable cost. |
 
 ## Model Strategy
@@ -117,9 +117,9 @@ memory only.
 
 ## Deployment Packages
 
-### Package 1: Small Company Private AI
+### Package 1: Small Amount Users Private AI
 
-Best for: 50 users, small team, agency, school, clinic, local business.
+Best for: small teams, agencies, schools, clinics, local businesses, and similar groups with a small monthly user amount.
 
 Recommended stack:
 
@@ -144,9 +144,9 @@ Best hosting:
 
 - Lambda Cloud, RunPod Secure Cloud, AWS single-GPU deployment, or one on-prem GPU server.
 
-### Package 2: Medium Company Private AI
+### Package 2: Growing Amount Users Private AI
 
-Best for: 500 users, medium business, BPO, SaaS company, regional enterprise.
+Best for: departments, BPOs, SaaS companies, regional enterprises, and growing organizations with a growing monthly user amount.
 
 Recommended stack:
 
@@ -171,9 +171,9 @@ Best hosting:
 
 - AWS, Google Cloud, Azure, Lambda reserved GPU, CoreWeave, or hybrid cloud.
 
-### Package 3: Large Company Private AI
+### Package 3: Large Amount Users Private AI
 
-Best for: 1000 users, national enterprise, bank, hospital group, university, government department.
+Best for: large enterprises, banks, hospital groups, universities, government departments, and high-concurrency teams with a large monthly user amount.
 
 Recommended stack:
 
@@ -292,11 +292,11 @@ Timeline: 4 to 8 weeks.
 
 Deliverables:
 
-- 50-user pilot.
+- Small-user pilot.
 - User feedback and answer-quality testing.
 - Cost optimization.
-- Scale to 500 users.
-- Scale to 1000 users.
+- Scale to growing user counts.
+- Scale to large user counts.
 
 ## Cost Control Rules
 
@@ -326,7 +326,7 @@ For commercial deployment, start with this:
 
 ## Final Recommendation
 
-For 50 to 1000 users, the best business option is not a 1.5T model from day one.
+For small to large user counts, the best business option is not a 1.5T model from day one.
 The best option is a private AI platform with routing, RAG, small-to-large
 models, and optional API fallback. This gives the company privacy, speed, and
 reasonable monthly cost while keeping a path to larger models later.
